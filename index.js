@@ -10,8 +10,8 @@ app.get("/", (req, res) => {
 });
 
 class apiResponse {
-	constructor(obj) {
-		this.content = obj;
+	constructor(content) {
+		this.content = content;
 		this.timestamp = new Date().getTime();
 	}
 }

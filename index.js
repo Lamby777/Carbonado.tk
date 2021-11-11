@@ -4,6 +4,7 @@
 const Express = require("express");
 
 const app = Express();
+app.use(Express.static(__dirname));
 
 app.get("/", (req, res) => {
 	res.sendFile(__dirname + "/index.html");
@@ -21,6 +22,7 @@ app.get("/api/:mode", (req, res) => {
 		case "seeds":
 			res.json(new apiResponse({
 				miners: [],
+				chainLength: 0,
 			}));
 			break;
 		default:

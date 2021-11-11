@@ -9,13 +9,19 @@ app.get("/", (req, res) => {
 	res.sendFile(__dirname + "/index.html");
 });
 
+class apiResponse {
+	constructor(obj) {
+		this.content = obj;
+		this.timestamp = new Date().getTime();
+	}
+}
+
 app.get("/api/:mode", (req, res) => {
 	switch(req.params.mode) {
 		case "seeds":
-			res.json({
-				timestamp: new Date().getTime(),
+			res.json(new apiResponse({
 				miners: [],
-			});
+			}));
 			break;
 		default:
 			res.send("404");

@@ -1,6 +1,6 @@
 // Used in index page to typewrite text
 const TYPE_SPEED = 40; // measured in ms per key
-const TEXT_KEEP = 5000; // time after finished to keep text
+const TEXT_KEEP = 4000; // time after finished to keep text
 const span = document.getElementById("homepage-edited-text");
 const ideaSlogans = [ // actually decent lines now
 	"A crypto for everyone!",

@@ -19,6 +19,10 @@ app.get("/", (req, res) => {
 	res.render("main");
 });
 
+app.get("/api", (req, res) => {
+	res.render("api");
+});
+
 app.get("/api/:mode", (req, res) => {
 	switch(req.params.mode) {
 		case "seeds":

@@ -8,12 +8,12 @@ const ideaSlogans = [ // stereotypical corporate shit, lol
 	"An NFT-first blockchain implementation",
 ];
 
-let lastIdeaNum = -1;
+let lastIdeaNum = -1; // Not equal to any index of ^^^
 
 function typewrite(callback) {
 	let ideaNum;
 	do { // Assign new random numbers until not same as last
-		ideaNum = generateNewIdeaNum();
+		ideaNum = Math.floor(Math.random() * ideaSlogans.length);
 	} while (ideaNum === lastIdeaNum);
 	lastIdeaNum = ideaNum;
 
@@ -21,7 +21,7 @@ function typewrite(callback) {
 	let i = 0;
 
 	let typeInterval = setInterval(() => {
-		if (i === (ideaText.length)) { // Finished
+		if (i === ideaText.length) { // Finished
 			clearInterval(typeInterval);
 			if (callback) setTimeout(callback, TEXT_KEEP);
 		} else {
@@ -29,10 +29,6 @@ function typewrite(callback) {
 			span.innerHTML = ideaText.slice(0, i);
 		}
 	}, TYPE_SPEED);
-}
-
-function generateNewIdeaNum() {
-	return Math.floor(Math.random() * ideaSlogans.length);
 }
 
 typewrite();

@@ -8,7 +8,7 @@ const ideaSlogans = [ // actually decent lines now
 	"Digital ownership!",
 	"... or something, I guess.",
 	"An NFT-first blockchain implementation.",
-	"Official Carbonado project website!"
+	"Official Carbonado project website!",
 ];
 
 let lastIdeaNum = -1; // Not equal to any index of ^^^

@@ -1,3 +1,19 @@
 body {
-	background-color: slategray;
+	background-image: url("mainbackground.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position-x: center;
+	background-attachment: fixed;
+}
+
+.bg-gray {
+	background-color: #3a3a3a;
+}
+
+img.pixel-art {
+    /*image-rendering: optimizeSpeed;*/
+    image-rendering: -moz-crisp-edges;          /* Firefox							*/
+    image-rendering: -o-crisp-edges;            /* Opera							*/
+    image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari)	*/
+    image-rendering: pixelated;					/* Chrome							*/
 }

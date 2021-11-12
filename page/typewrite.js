@@ -21,12 +21,12 @@ function typewrite(callback) {
 	let i = 0;
 
 	let typeInterval = setInterval(() => {
-		if (i === (ideaText.length - 1)) { // Finished
+		if (i === (ideaText.length)) { // Finished
 			clearInterval(typeInterval);
 			if (callback) setTimeout(callback, TEXT_KEEP);
 		} else {
-			span.innerHTML = ideaText.slice(0, i);
 			i++;
+			span.innerHTML = ideaText.slice(0, i);
 		}
 	}, TYPE_SPEED);
 }

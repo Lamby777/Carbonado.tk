@@ -1,7 +1,7 @@
 // Used in index page to typewrite text
 const TYPE_SPEED = 100; // measured in ms per key
 const TEXT_KEEP = 5000; // time after finished to keep text
-const span = document.body.getElementById("homepage-edited-text");
+const span = document.getElementById("homepage-edited-text");
 const ideaSlogans = [ // stereotypical corporate shit, lol
 	"A cryptocurrency for everyone",
 	"A platform for your new token",
@@ -25,7 +25,7 @@ function typewrite(callback) {
 			clearInterval(typeInterval);
 			if (callback) setTimeout(callback, TEXT_KEEP);
 		} else {
-			span.innerHTML = ideasText.splice(0, i);
+			span.innerHTML = ideaText.slice(0, i);
 			i++;
 		}
 	}, TYPE_SPEED);
@@ -34,3 +34,5 @@ function typewrite(callback) {
 function generateNewIdeaNum() {
 	return Math.floor(Math.random() * ideaSlogans.length);
 }
+
+typewrite();

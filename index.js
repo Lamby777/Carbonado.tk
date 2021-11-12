@@ -2,13 +2,11 @@
 "use strict";
 
 const Express = require("express");
+const ejs = require("ejs");
 
 const app = Express();
-app.use(Express.static(__dirname + "/page"));
-
-app.get("/", (req, res) => {
-	res.sendFile(__dirname + "/index.html");
-});
+app.set("view engine", "ejs");
+app.use(Express.static(__dirname + "/views/src"));
 
 class apiResponse {
 	constructor(content) {
@@ -16,6 +14,10 @@ class apiResponse {
 		this.timestamp = new Date().getTime();
 	}
 }
+
+app.get("/", (req, res) => {
+	res.render("main");
+});
 
 app.get("/api/:mode", (req, res) => {
 	switch(req.params.mode) {

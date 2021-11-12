@@ -10,7 +10,7 @@ const ideaSlogans = [ // stereotypical corporate shit, lol
 
 let lastIdeaNum = -1;
 
-function typewrite(text, callback) {
+function typewrite(callback) {
 	let ideaNum;
 	do { // Assign new random numbers until not same as last
 		ideaNum = generateNewIdeaNum();
@@ -25,9 +25,9 @@ function typewrite(text, callback) {
 			clearInterval(typeInterval);
 			setTimeout(callback, TEXT_KEEP);
 		} else {
-			//
+			span.innerHTML = ideasText.splice(0, i);
+			i++;
 		}
-		i++;
 	}, TYPE_SPEED);
 }
 

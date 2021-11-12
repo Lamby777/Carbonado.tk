@@ -20,14 +20,14 @@ function typewrite(text, callback) {
 	let ideaText = ideaSlogans[ideaNum];
 	let i = 0;
 
-	let x = setInterval(() => {
+	let typeInterval = setInterval(() => {
 		if (i === (ideaText.length - 1)) { // Finished
-			clearInterval(x);
+			clearInterval(typeInterval);
 			setTimeout(callback, TEXT_KEEP);
 		} else {
 			//
 		}
-		i++
+		i++;
 	}, TYPE_SPEED);
 }
 

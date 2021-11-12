@@ -23,7 +23,7 @@ function typewrite(callback) {
 	let typeInterval = setInterval(() => {
 		if (i === (ideaText.length - 1)) { // Finished
 			clearInterval(typeInterval);
-			setTimeout(callback, TEXT_KEEP);
+			if (callback) setTimeout(callback, TEXT_KEEP);
 		} else {
 			span.innerHTML = ideasText.splice(0, i);
 			i++;

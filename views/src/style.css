@@ -10,6 +10,10 @@ body {
 	background-color: #3a3a3a;
 }
 
+.features-icon {
+	font-size: 5em;
+}
+
 .codebox {
 	border: 0.2em solid #000;
 	border-radius: 4%;

@@ -10,6 +10,13 @@ body {
 	background-color: #3a3a3a;
 }
 
+/*.codebox {
+	border: 0.2em solid red;
+	background-color: #3a3a3a;
+	color: white;
+	font-family: "Lucida Console", monospace;
+}/**/
+
 img.pixel-art {
     /*image-rendering: optimizeSpeed;*/
     image-rendering: -moz-crisp-edges;          /* Firefox							*/

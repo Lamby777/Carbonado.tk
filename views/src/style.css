@@ -10,8 +10,8 @@ body {
 	background-color: #3a3a3a;
 }
 
-/*.codebox {
-	border: 0.2em solid red;
+.codebox {
+	border: 0.2em solid #000;
 	background-color: #3a3a3a;
 	color: white;
 	font-family: "Lucida Console", monospace;

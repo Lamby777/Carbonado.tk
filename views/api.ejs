@@ -3,7 +3,7 @@
 
 <head>
 	<%- include("parts/head"); %>
-	<title>Carbonado // Home</title>
+	<title>Carbonado // API</title>
 </head>
 
 <body>
@@ -11,12 +11,8 @@
 	<%- include("parts/topbar"); %>
 		
 		<h1 class="display-1 text-center text-white mt-5">Carbonado API</h1>
-		<h1 class="display-4 text-center text-white mb-1">Getting Started</h1>
-		<h2 class="display-6 text-center text-white mb-5">
-			<span id="homepage-edited-text">
-				<noscript>An NFT-first blockchain implementation</noscript>
-			</span>
-		</h2><div class="container-fluid bg-warning my-5 py-3"></div>
+		<h1 class="display-5 text-center text-white mb-1">Accessing Blockchain Data</h1>
+		<div class="container-fluid bg-warning my-5 py-3"></div>
 	</div>
 
 	<div class="my-5 py-5"></div>
@@ -24,7 +20,7 @@
 
 	<div class="container-fluid bg-gray mt-5 pt-3 pb-5 text-dark">
 		<div class="row mx-1 mb-4 text-center">
-			<h1 class="display-4 text-white">Hey!</h1>
+			<h1 class="display-4 text-white">Getting Started</h1>
 			<h4 class="text-white">
 				To access the API, you need to send a GET request to
 				one of this server's API paths. You could always run
@@ -64,10 +60,10 @@ req.end()
 </code></pre>
 				</div>
 			</div></div>
-			<div class="col"><div class="container col-12 bg-warning py-5">
+			
+			<div class="col"><div class="container col-12 bg-warning py-5 mb-4">
 				<h1 class="display-6 text-center">Python</h1>
 				<div class="container codebox">
-<!-- If you couldn't tell, I'm an expert at writing terrible code -->
 <pre><code>
 <span syn4># Adapted from Nylas</span>
 <span syn1>import</span> requests
@@ -75,7 +71,18 @@ data = requests.<span syn3>get</span>(<span syn2>"https://carbonado.tk/api/seeds
 <span syn3>print</span>(data.<span syn3>json</span>())
 </code></pre>
 			</div>
-		</div></div>
+		</div>
+
+		<div class="container col-12 bg-warning py-5">
+				<h1 class="display-6 text-center">PowerShell</h1>
+				<div class="container codebox">
+<pre><code>
+<span syn3>Invoke-WebRequest</span>(<span syn2>"https://carbonado.tk/api/seeds"</span>).Content
+</code></pre>
+			</div>
+		</div>
+		
+		</div> <!-- second column end -->
 	</div>
 
 

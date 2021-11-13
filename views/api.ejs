@@ -36,22 +36,15 @@
 				<div class="container codebox">
 <!-- If you couldn't tell, I'm an expert at writing terrible code -->
 <pre><code>
-<span syn4>// Adapted from NodeJS.dev</span>
+<span syn4>// Adapted from NodeJS docs</span>
 <span syn1>const</span> https = <span syn3>require</span>(<span syn2>"https"</span>);
-<span syn1>const</span> options = {
-	hostname: <span syn2>"carbonado.tk"</span>,
-	port: <span syn3>443</span>,
-	path: <span syn2>"/api/seeds"</span>,
-	method: <span syn2>"GET"</span>
-}
+<span syn1>const</span> url = <span syn2>"https://carbonado.tk/api/seeds"</span>,
 
-<span syn1>const</span> req = https.<span syn3>request</span>(options, (res) => {
+<span syn1>const</span> req = https.<span syn3>get</span>(url, (res) => {
 	res.<span syn3>on</span>(<span syn2>"data"</span>, (d) => {
-		console.<span syn3>log</span>(d);
+		process.stdout.<span syn3>write</span>(d);
 	});
-});
-
-req.<span syn3>on</span(<span syn2>"error"</span>, (error) => {
+}).<span syn3>on</span>(<span syn2>"error"</span>, (error) => {
 	console.<span syn3>error</span>(error);
 });
 

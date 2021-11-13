@@ -41,8 +41,15 @@
 <span syn1>const</span> url = <span syn2>"https://carbonado.tk/api/seeds"</span>;
 
 <span syn1>const</span> req = https.<span syn3>get</span>(url, (res) => {
+	<span syn1>let</span> data = [];
 	res.<span syn3>on</span>(<span syn2>"data"</span>, (d) => {
-		process.stdout.<span syn3>write</span>(d);
+		data.<span syn3>push</span>(d);
+	});
+
+	res.<span syn3>on</span>("end", () => {
+		<span syn1>let</span> dataStr = <span syn2>Buffer</span>.<span syn3>concat</span>(data).<span syn3>toString</span>();
+		<span syn1>let</span> json = <span syn2>JSON</span>.<span syn3>parse</span>(dataStr);
+		console.<span syn3>log</span>(json.content.miners);
 	});
 }).<span syn3>on</span>(<span syn2>"error"</span>, (error) => {
 	console.<span syn3>error</span>(error);

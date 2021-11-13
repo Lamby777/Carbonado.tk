@@ -9,7 +9,6 @@
 <body>
 	<div class="mx-0 bg-gray">
 	<%- include("parts/topbar"); %>
-		
 		<h1 class="display-1 text-center text-white mt-5">Carbonado API</h1>
 		<h1 class="display-5 text-center text-white mb-1">Accessing Blockchain Data</h1>
 		<div class="container-fluid bg-warning my-5 py-3"></div>
@@ -61,7 +60,7 @@ req.end()
 				</div>
 			</div></div>
 			
-			<div class="col"><div class="container col-12 bg-warning py-5 mb-4">
+			<div class="col"><div class="container col-12 bg-warning py-5">
 				<h1 class="display-6 text-center">Python</h1>
 				<div class="container codebox">
 <pre><code>
@@ -73,11 +72,22 @@ data = requests.<span syn3>get</span>(<span syn2>"https://carbonado.tk/api/seeds
 			</div>
 		</div>
 
-		<div class="container col-12 bg-warning py-5">
+		<div class="container col-12 bg-warning py-5 mt-4">
 				<h1 class="display-6 text-center">PowerShell</h1>
 				<div class="container codebox">
 <pre><code>
+<span syn4># Doing it the Microsoft Way™</span>
 <span syn3>Invoke-WebRequest</span>(<span syn2>"https://carbonado.tk/api/seeds"</span>).Content
+</code></pre>
+			</div>
+		</div>
+
+		<div class="container col-12 bg-warning py-5 mt-4">
+				<h1 class="display-6 text-center">Bash</h1>
+				<div class="container codebox">
+<pre><code>
+<span syn4># Nice and simple :)</span>
+<span syn1>curl</span> https://carbonado.tk/api/seeds
 </code></pre>
 			</div>
 		</div>

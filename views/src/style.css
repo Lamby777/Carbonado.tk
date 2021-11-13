@@ -12,10 +12,30 @@ body {
 
 .codebox {
 	border: 0.2em solid #000;
+	border-radius: 4%;
+	padding: 2% 4%;
 	background-color: #3a3a3a;
 	color: white;
 	font-family: "Lucida Console", monospace;
+	font-weight: 900;
+	tab-size: 4;
 }/**/
+
+.codebox span[syn1] {
+	color: dodgerblue;
+}
+
+.codebox span[syn2] {
+	color: palegreen;
+}
+
+.codebox span[syn3] {
+	color: lightblue;
+}
+
+.codebox span[syn4] {
+	color: darkolivegreen;
+}
 
 img.pixel-art {
     /*image-rendering: optimizeSpeed;*/

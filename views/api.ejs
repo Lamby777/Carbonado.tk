@@ -23,7 +23,7 @@
 	<div class="my-3 py-3"></div>
 
 	<div class="container-fluid bg-gray mt-5 pt-3 pb-5 text-dark">
-		<div class="row mx-5 mb-4 text-center">
+		<div class="row mx-1 mb-4 text-center">
 			<h1 class="display-4 text-white">Hey!</h1>
 			<h4 class="text-white">
 				To access the API, you need to send a GET request to
@@ -38,15 +38,29 @@
 		<div class="row my-2">
 			<div class="col"><div class="container col-12 bg-warning py-5">
 				<h1 class="display-6 text-center">NodeJS</h1>
-				<div class="container">
-<pre class="ft-syntax-highlight" data-syntax="javascript"><code>console.log("Hi");
-<span class="comment">console.log("Hi, again!");</span>
-console.log("Hi");
-console.log("Hi, again!");
-console.log("Hi");
-console.log("Hi, again!");
-console.log("Hi");
-console.log("Hi, again!");
+				<div class="container codebox">
+<!-- If you couldn't tell, I'm an expert at writing terrible code -->
+<pre data-syntax="javascript"><code>
+<span syn4>// Adapted from NodeJS.dev</span>
+<span syn1>const</span> https = require(<span syn2>"https"</span>);
+<span syn1>const</span> options = {
+	hostname: <span syn2>"carbonado.tk"</span>,
+	port: <span syn3>443</span>,
+	path: <span syn2>"/api/seeds"</span>,
+	method: <span syn2>"GET"</span>
+}
+
+<span syn1>const</span> req = https.request(options, (res) => {
+	res.on(<span syn2>"data"</span>, (d) => {
+		console.log(d);
+	});
+});
+
+req.on(<span syn2>"error"</span>, (error) => {
+	console.error(error);
+});
+
+req.end()
 </code></pre>
 				</div>
 			</div></div>

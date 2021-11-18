@@ -14,7 +14,7 @@ let routerNodes = {};
 class apiResponse {
 	constructor(content) {
 		this.content = content;
-		this.timestamp = new Date().getTime();
+		this.timestamp = Date.now();
 	}
 }
 

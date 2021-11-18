@@ -8,6 +8,8 @@ const app = Express();
 app.set("view engine", "ejs");
 app.use(Express.static(__dirname + "/views/src"));
 
+let routerNodes = [];
+
 class apiResponse {
 	constructor(content) {
 		this.content = content;
@@ -15,12 +17,31 @@ class apiResponse {
 	}
 }
 
+
+
 app.get("/", (req, res) => {
 	res.render("main");
 });
 
 app.get("/api", (req, res) => {
 	res.render("api");
+});
+
+app.post("/router", (req, res) => {
+	let ip = req.headers["x-forwarded-for"];
+	if (routerNodes.includes(ip)) {
+		res.send("Already connected!");
+	} else {
+		routerNodes.push(ip);
+		console.log(`Adding IP ${ip} to nodes.`);
+	}
+	res.end();
+});
+
+app.get("/router", (req, res) => {
+	res.json(new apiResponse({
+		miners: routerNodes,
+	}));
 });
 
 app.get("/api/:mode", (req, res) => {

@@ -8,7 +8,8 @@ const app = Express();
 app.set("view engine", "ejs");
 app.use(Express.static(__dirname + "/views/src"));
 
-let routerNodes = [];
+const ROUTED_MINER_TTR = 600 * (1000); // Spaghettiphobia at its finest
+let routerNodes = {};
 
 class apiResponse {
 	constructor(content) {
@@ -29,26 +30,31 @@ app.get("/api", (req, res) => {
 
 app.post("/router", (req, res) => {
 	let ip = req.headers["x-forwarded-for"];
-	if (routerNodes.includes(ip)) {
+	if (routerNodes.hasOwnProperty(ip)) {
 		res.send("Already connected!");
 	} else {
-		routerNodes.push(ip);
 		console.log(`Adding IP ${ip} to nodes.`);
 	}
+
+	// Refresh node's TTR
+	routerNodes[ip] = Date.now();
+
 	res.end();
 });
 
 app.get("/router", (req, res) => {
+	cleanNodesList();
 	res.json(new apiResponse({
-		miners: routerNodes,
+		miners: Object.keys(routerNodes),
 	}));
 });
 
 app.get("/api/:mode", (req, res) => {
+	cleanNodesList();
 	switch(req.params.mode) {
 		case "seeds":
 			res.json(new apiResponse({
-				miners: [],
+				miners: Object.keys(routerNodes),
 				chainLength: 0,
 			}));
 			break;
@@ -60,3 +66,12 @@ app.get("/api/:mode", (req, res) => {
 app.listen(3000, () => {
 	//
 });
+
+function cleanNodesList() {
+	let nobj = {};
+	let curDate = Date.now();
+	for (const [k,v] of Object.entries(routerNodes)) {
+		if (curDate - v < ROUTED_MINER_TTR)
+			nobj[k] = v;
+	} return nobj;
+}

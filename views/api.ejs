@@ -38,7 +38,7 @@
 <pre><code>
 <span syn4>// Adapted from NodeJS docs</span>
 <span syn1>const</span> https = <span syn3>require</span>(<span syn2>"https"</span>);
-<span syn1>const</span> url = <span syn2>"https://carbonado.tk/api/seeds"</span>;
+<span syn1>const</span> url = <span syn2>"https://carbonado.tk/api/router"</span>;
 
 <span syn1>const</span> req = https.<span syn3>get</span>(url, (res) => {
 	<span syn1>let</span> data = [];
@@ -66,7 +66,7 @@ req.<span syn3>end</span>();
 <pre><code>
 <span syn4># Adapted from Nylas</span>
 <span syn1>import</span> requests
-data = requests.<span syn3>get</span>(<span syn2>"https://carbonado.tk/api/seeds"</span>)
+data = requests.<span syn3>get</span>(<span syn2>"https://carbonado.tk/api/router"</span>)
 <span syn3>print</span>(data.<span syn3>json</span>())
 </code></pre>
 			</div>
@@ -77,7 +77,7 @@ data = requests.<span syn3>get</span>(<span syn2>"https://carbonado.tk/api/seeds
 				<div class="container codebox">
 <pre><code>
 <span syn4># Doing it the Microsoft Way™</span>
-<span syn3>Invoke-WebRequest</span>(<span syn2>"https://carbonado.tk/api/seeds"</span>).Content
+<span syn3>Invoke-WebRequest</span>(<span syn2>"https://carbonado.tk/api/router"</span>).Content
 </code></pre>
 			</div>
 		</div>
@@ -87,7 +87,7 @@ data = requests.<span syn3>get</span>(<span syn2>"https://carbonado.tk/api/seeds
 				<div class="container codebox">
 <pre><code>
 <span syn4># Nice and simple :)</span>
-<span syn1>curl</span> https://carbonado.tk/api/seeds
+<span syn1>curl</span> https://carbonado.tk/api/router
 </code></pre>
 			</div>
 		</div>

@@ -8,7 +8,7 @@ const app = Express();
 app.set("view engine", "ejs");
 app.use(Express.static(__dirname + "/views/src"));
 
-const ROUTED_MINER_TTR = 600 * (1000); // Spaghettiphobia at its finest
+const ROUTED_MINER_TTR = 60 * (1000); // Spaghettiphobia at its finest
 let routerNodes = {};
 
 class apiResponse {
@@ -42,22 +42,18 @@ app.post("/router", (req, res) => {
 	res.end();
 });
 
-app.get("/router", (req, res) => {
-	cleanNodesList();
-	res.json(new apiResponse({
-		miners: Object.keys(routerNodes),
-	}));
-});
-
 app.get("/api/:mode", (req, res) => {
 	cleanNodesList();
 	switch(req.params.mode) {
-		case "seeds":
+		case "chain":
 			res.json(new apiResponse({
-				miners: Object.keys(routerNodes),
 				chainLength: 0,
 			}));
 			break;
+		case "router":
+			res.json(new apiResponse({
+				miners: Object.keys(routerNodes),
+			}));
 		default:
 			res.send("404");
 	}
@@ -73,5 +69,7 @@ function cleanNodesList() {
 	for (const [k,v] of Object.entries(routerNodes)) {
 		if (curDate - v < ROUTED_MINER_TTR)
 			nobj[k] = v;
-	} return nobj;
+	}
+
+	return routerNodes = nobj;
 }

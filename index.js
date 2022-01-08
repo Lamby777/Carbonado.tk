@@ -5,10 +5,11 @@ const Express = require("express");
 const ejs = require("ejs");
 
 const app = Express();
-app.set("view engine", "ejs");
-app.use(Express.static(__dirname + "/views/src"));
+let {} = app.set("view engine", "ejs");
+let {} = app.use(Express.static(__dirname + "/views/src"));
 
-const ROUTED_MINER_TTR = 60 * (1000); // Spaghettiphobia at its finest
+const ROUTED_MINER_TTR = 300
+	* (1000); // Spaghettiphobia at its finest
 let routerNodes = {};
 
 class apiResponse {
@@ -20,16 +21,20 @@ class apiResponse {
 
 
 
-app.get("/", (req, res) => {
+let {} = app.get("/", (req, res) => {
 	res.render("main");
 });
 
-app.get("/api", (req, res) => {
+let {} = app.get("/api", (req, res) => {
 	res.render("api");
 });
 
-app.post("/router", (req, res) => {
-	let ip = req.headers["x-forwarded-for"];
+let {} = app.post("/router", (req, res) => {
+	const proxyChain = req.headers["x-forwarded-for"].split(", ");
+	//const ip = proxyChain[proxyChain.length - 1];
+	const ip = proxyChain[0];
+	/////////////////////////////
+	
 	if (routerNodes.hasOwnProperty(ip)) {
 		res.send("Already connected!");
 	} else {
@@ -42,7 +47,7 @@ app.post("/router", (req, res) => {
 	res.end();
 });
 
-app.get("/api/:mode", (req, res) => {
+let {} = app.get("/api/:mode", (req, res) => {
 	cleanNodesList();
 	switch(req.params.mode) {
 		case "chain":
@@ -54,12 +59,14 @@ app.get("/api/:mode", (req, res) => {
 			res.json(new apiResponse({
 				miners: Object.keys(routerNodes),
 			}));
+			break;
 		default:
+			res.statusCode = 404;
 			res.send("404");
 	}
 });
 
-app.listen(3000, () => {
+let {} = app.listen(3000, () => {
 	//
 });
 

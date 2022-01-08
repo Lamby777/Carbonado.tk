@@ -29,6 +29,10 @@ let {} = app.get("/api", (req, res) => {
 	res.render("api");
 });
 
+let {} = app.get("/conic", (req, res) => {
+	res.render("conic");
+});
+
 let {} = app.post("/router", (req, res) => {
 	const proxyChain = req.headers["x-forwarded-for"].split(", ");
 	//const ip = proxyChain[proxyChain.length - 1];

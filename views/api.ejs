@@ -46,7 +46,7 @@
 		data.<span syn3>push</span>(d);
 	});
 
-	res.<span syn3>on</span>("end", () => {
+	res.<span syn3>on</span>(<span syn2>"end"</span>, () => {
 		<span syn1>let</span> dataStr = <span syn2>Buffer</span>.<span syn3>concat</span>(data).<span syn3>toString</span>();
 		<span syn1>let</span> json = <span syn2>JSON</span>.<span syn3>parse</span>(dataStr);
 		console.<span syn3>log</span>(json.content.miners);
